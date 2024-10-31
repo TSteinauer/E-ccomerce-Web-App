@@ -1,0 +1,62 @@
+<%- include('../partials/header.ejs', { cssFile: cssFile }) %>
+<div class="parent-container">
+    <div class="Text">
+        <h1>Sell Your Old Clothes Here</h1>
+        <p>
+            In an effort to slow down the environmental effects of FAST FASHION, 
+            the "Sarang Streetwear" team would like to allow our customers to sell
+            used and discontinued clothing that were released by our brand.<br>
+        </p>
+    </div>
+
+    <div class="form-container">
+        <form class="sale-form" action="/clothes" method="POST" enctype="multipart/form-data">
+            <label for="seller">Seller: 
+                <input type="text" id="seller" name="seller" required>
+            </label>
+            
+            <label for="condition">Condition:
+                <select id="condition" name="condition" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="New">New</option>
+                    <option value="Like-new">Like New</option>
+                    <option value="Used">Used</option>
+                    <option value="Fair">Fair</option>
+                    <option value="Well Worn">Well Worn</option>
+                </select>
+            </label>
+            
+            <label for="type">Type:
+                <select id="type" name="type" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="tshirt">T-Shirt</option>
+                    <option value="jeans">Jeans</option>
+                    <option value="jacket">Jacket</option>
+                    <option value="hat">Hat</option>
+                    <option value="Misc">Misc.</option>
+                </select>
+            </label>
+            
+            <label for="name">Collection Name: 
+                <input type="text" id="collection" name="name" required>
+            </label>
+            <label for="price">Price: 
+                <input type="text" id="price" name="price" required>
+            </label>
+            <label for="description">Details: 
+                <input type="text" id="details" name="description" required minlength="10">
+            </label>
+            <label for="stock">Stock: 
+                <input type="text" id="stock" name="stock" required>
+            </label>
+            
+            <label for="img">Image: 
+                <input type="file" id="image" name="img" required>
+            </label>
+
+            <button class="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

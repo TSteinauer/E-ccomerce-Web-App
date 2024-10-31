@@ -1,0 +1,23 @@
+<%- include('../partials/header.ejs', { cssFile: cssFile }) %>
+
+<div class="card-container">
+  <% if (clothes.length > 0) { %>  
+    <% clothes.forEach(function(item) { %>  
+      <div id="<%= item.id %>" class="card">
+        <a href="/clothes/<%= item.id %>">
+          <img src="<%= item.img %>" alt="<%= item.name %>" />
+        </a>
+        <h2><%= item.name %></h2>
+        <p class="price"><%= item.price %></p>
+        <p><%= item.description %><br><%= item.condition %></p>
+        <p id="itemStock" class="italicized"><%= item.stock %></p>
+        <p>Seller: <%= item.seller %></p>
+        <p><button>Add to Cart</button></p>
+      </div>
+    <% }) %>  
+  <% } else { %>
+    <p><%= message || 'No items found' %></p>
+  <% } %>
+</div>
+
+<%- include('../partials/footer.ejs') %>

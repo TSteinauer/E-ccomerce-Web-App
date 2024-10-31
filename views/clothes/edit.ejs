@@ -1,0 +1,61 @@
+<%- include('../partials/header.ejs', { cssFile: cssFile }) %>
+<div class="parent-container">
+    <div class="Text">
+        <h1>Edit Clothes HERE</h1>
+        <p>
+            Made a mistake?<br>
+        </p>
+    </div>
+
+    <div class="form-container">
+        <form class="sale-form" method="POST" action="/clothes/<%= item.id %>?_method=PUT" enctype="multipart/form-data">
+            <label for="seller">Seller: 
+                <input type="text" id="seller" name="seller" value="<%= item.seller %>" required>
+            </label>
+            
+            <label for="condition">Condition:
+                <select id="condition" name="condition" required>
+                    <option value="" disabled selected>Select Condition</option>
+                    <option value="new" <%= item.condition === "new" ? "selected" : "" %>>New</option>
+                    <option value="like-new" <%= item.condition === "like-new" ? "selected" : "" %>>Like New</option>
+                    <option value="used" <%= item.condition === "used" ? "selected" : "" %>>Used</option>
+                    <option value="fair" <%= item.condition === "fair" ? "selected" : "" %>>Fair</option>
+                    <option value="well-worn" <%= item.condition === "well-worn" ? "selected" : "" %>>Well Worn</option>
+                </select>
+            </label>
+            
+            
+            <label for="type">Type:
+                <select id="type" name="type" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="tshirt" <%= item.type === "tshirt" ? "selected" : "" %>>T-Shirt</option>
+                    <option value="jeans" <%= item.type === "jeans" ? "selected" : "" %>>Jeans</option>
+                    <option value="jacket" <%= item.type === "jacket" ? "selected" : "" %>>Jacket</option>
+                    <option value="hat" <%= item.type === "hat" ? "selected" : "" %>>Hat</option>
+                    <option value="misc" <%= item.type === "misc" ? "selected" : "" %>>Misc.</option>
+                </select>
+            </label>
+            
+            <label for="name">Collection: 
+                <input type="text" id="collection" name="name" value="<%= item.name %>" required>
+            </label>
+            <label for="price">Price: 
+                <input type="text" id="price" name="price" value="<%= item.price %>" required>
+            </label>
+            <label for="description">Details: 
+                <input type="text" id="details" name="description" value="<%= item.description %>" required minlength="10">
+            </label>
+            <label for="stock">Stock: 
+                <input type="text" id="stock" name="stock" value="<%= item.stock %>" required>
+            </label>
+            
+            <label for="img">Current Image:</label>
+            <img src="/<%= item.img %>" alt="Current Image" style="max-width: 200px;">
+            <input type="file" id="image" name="img">
+
+            <button class="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
