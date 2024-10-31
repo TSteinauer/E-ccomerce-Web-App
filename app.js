@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const methodOverride =  require('method-override');
 const mongoose = require('mongoose');
 const clothingRoutes = require('./routes/clothingRoutes');
-
+require('dotenv').config();
 
 
 //create application
@@ -16,7 +16,7 @@ const app = express();
 let port = 3000;
 let host = 'localhost';
 app.set('view engine', 'ejs'); //lets express know that all the html pages are in the views folder
-const mongUri = 'mongodb+srv://tsteinau:Asdfgtom12@cluster0.hh152.mongodb.net/sarang?retryWrites=true&w=majority&appName=Cluster0';
+const mongUri = process.env.MONGODB_URI;
 //connect to MongoDB
 mongoose.connect(mongUri)
 .then(()=>{
